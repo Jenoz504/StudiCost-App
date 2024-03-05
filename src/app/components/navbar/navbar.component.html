@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button  (click) = "sidenav.toggle();" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>StudiCost</span>
+    <span class="spaceado"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav >
+    <mat-nav-list>
+      <a mat-list-item>Home</a>
+      <a mat-list-item>Home</a>
+      <a mat-list-item>Home</a>
+      <a mat-list-item>Home</a>
+    </mat-nav-list>
+</mat-sidenav>
+<mat-sidenav-content>
+</mat-sidenav-content>
+</mat-sidenav-container>
