@@ -1,0 +1,66 @@
+<div class="container text-center pt-5">
+    <h1>Registro</h1>
+</div>
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-1 col-lg-3 "></div>
+        <div class="col-12 col-md-10 col-lg-6 ">
+            <mat-form-field class="col-12">
+                <mat-label>Nombre</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 col-lg-3 "></div>
+        <div class="col-12 col-md-10 col-lg-6 ">
+            <mat-form-field class="col-12">
+                <mat-label>Apellido</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 col-lg-3 "></div>
+        <div class="col-12 col-md-10 col-lg-6 ">
+            <mat-form-field class="col-12">
+                <mat-label>Usuario</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 col-lg-3 "></div>
+        <div class="col-12 col-md-10 col-lg-6 ">
+            <mat-form-field class="col-12">
+                <mat-label>Contraseña</mat-label>
+                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1 col-lg-3 "></div>
+        <div class="col-12 col-md-10 col-lg-6 ">
+            <mat-form-field class="col-12">
+                <mat-label>Repetir contraseña</mat-label>
+                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row"><div class="col-md-1 col-lg-3 "></div>
+    <div class="col-12 col-md-10 col-lg-6 ">
+        <button mat-flat-button color="primary" class="col-12">Registrarse</button>
+    </div>
+    <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row pt-3">
+        <p class="text-center">Tengo una cuenta</p>
+    </div>
+</div>
