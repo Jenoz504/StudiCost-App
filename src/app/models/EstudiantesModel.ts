@@ -5,4 +5,6 @@ export class EstudiantesModel{
   apellido: String = "";
   edad: Number = 0;
   presupuesto: Number = 0;
+  usuario: String = "";
+  contrasena: String = "";
 }
