@@ -58,7 +58,7 @@
         <div class="col-12 col-md-10 col-lg-6 ">
           <mat-form-field class="col-12">
             <mat-label>Repetir contraseña</mat-label>
-            <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
+            <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" name="contrasena2" [(ngModel)] ='contrasena2'>
             <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
         </div>
@@ -72,6 +72,6 @@
     </div>
     </form>
     <div class="row pt-3">
-      <p class="text-center">Tengo una cuenta</p>
+      <a class="text-center" routerLink="/login">Tengo una cuenta</a>
     </div>
   </div>
