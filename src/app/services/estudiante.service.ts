@@ -12,12 +12,12 @@ export class EstudianteService {
   constructor(private http: HttpClient) {  }
   url = 'http://localhost:8000/api/estudiantes/';
 
-  getEstudiantes(id:any):Observable<any>{
+  getEstudianteById(id:any):Observable<any>{
     return this.http.get(this.url, id);
   }
 
-  getEstudianteById(username:any):Observable<any>{
-    return this.http.get(this.url, username);
+  getEstudiantePorUsuario(usuario:any):Observable<any>{
+    return this.http.get(this.url+ 'byusuario/'+ usuario);
   }
 
   eliminarEstudiante(id: string): Observable<any>{
@@ -27,7 +27,6 @@ export class EstudianteService {
   guardarEstudiante(Estudiante: EstudiantesModel): Observable<any> {
     return this.http.post<any>(this.url, Estudiante).pipe(catchError((error: HttpErrorResponse) =>{
       let errorMessage = "";
-
 
       if(error.error instanceof ErrorEvent) {
         errorMessage = `Error: ${error.error.message}`;

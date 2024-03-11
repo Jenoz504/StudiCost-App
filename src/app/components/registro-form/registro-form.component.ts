@@ -12,7 +12,8 @@ import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { encriptar } from '../../util/util-encrypt';
-import { routes } from '../../app.routes';
+import *  as CryptoJs from 'crypto-js'
+
 
 @Component({
   selector: 'app-registro-form',
@@ -43,7 +44,8 @@ export class RegistroFormComponent {
 
   guardarUsuario(): void {
     if (this.lasContrasenasCoinciden()) {
-      this.Estudiante.contrasena = encriptar(JSON.stringify(this.Estudiante.contrasena));
+      console.log(this.Estudiante.contrasena.toString());
+      this.Estudiante.contrasena = encriptar(this.Estudiante.contrasena.toString());
       console.log(this.Estudiante);
       this.servicioEstudiante.guardarEstudiante(this.Estudiante).subscribe(data=> {
         console.log(data);
