@@ -1,65 +1,77 @@
 
 <div class="container border shadow pt-5 mt-4 mb-4">
     <h1 class="text-center pt-2">Registro</h1>
-    <div class="row">
+    <form (ngSubmit) = "guardarUsuario()">
+      <div class="row">
         <div class="col-md-1 col-lg-3 "></div>
         <div class="col-12 col-md-10 col-lg-6 ">
-            <mat-form-field class="col-12">
-                <mat-label>Nombre</mat-label>
-                <input matInput>
-            </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Nombre</mat-label>
+            <input name="nombre" [(ngModel)] ='Estudiante.nombre'  matInput >
+          </mat-form-field>
         </div>
         <div class="col-md-1 col-lg-3"></div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-1 col-lg-3 "></div>
         <div class="col-12 col-md-10 col-lg-6 ">
-            <mat-form-field class="col-12">
-                <mat-label>Apellido</mat-label>
-                <input matInput>
-            </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Apellido</mat-label>
+            <input matInput name="apellido" [(ngModel)] ='Estudiante.apellido'>
+          </mat-form-field>
         </div>
         <div class="col-md-1 col-lg-3"></div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-1 col-lg-3 "></div>
         <div class="col-12 col-md-10 col-lg-6 ">
-            <mat-form-field class="col-12">
-                <mat-label>Usuario</mat-label>
-                <input matInput>
-            </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Usuario</mat-label>
+            <input matInput name="usuario" [(ngModel)] ="Estudiante.usuario">
+          </mat-form-field>
         </div>
         <div class="col-md-1 col-lg-3"></div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-1 col-lg-3 "></div>
         <div class="col-12 col-md-10 col-lg-6 ">
-            <mat-form-field class="col-12">
-                <mat-label>Contraseña</mat-label>
-                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Presupuesto</mat-label>
+            <input matInput type="number" name="presupuesto" [(ngModel)] ='Estudiante.presupuesto'>
+          </mat-form-field>
         </div>
         <div class="col-md-1 col-lg-3"></div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-1 col-lg-3 "></div>
         <div class="col-12 col-md-10 col-lg-6 ">
-            <mat-form-field class="col-12">
-                <mat-label>Repetir contraseña</mat-label>
-                <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
-                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </mat-form-field>
+          <mat-form-field class="col-12">
+            <mat-label>Contraseña</mat-label>
+            <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" name="contrasena" [(ngModel)] ='Estudiante.contrasena'>
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
         </div>
         <div class="col-md-1 col-lg-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-1 col-lg-3 "></div>
+        <div class="col-12 col-md-10 col-lg-6 ">
+          <mat-form-field class="col-12">
+            <mat-label>Repetir contraseña</mat-label>
+            <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1 col-lg-3"></div>
+      </div>
+      <div class="row"><div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <input class = "btn btn-primary" type="submit" value ="Registrarse" class="col-12">
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
     </div>
-    <div class="row"><div class="col-md-1 col-lg-3 "></div>
-    <div class="col-12 col-md-10 col-lg-6 ">
-        <button mat-flat-button color="primary" class="col-12">Registrarse</button>
-    </div>
-    <div class="col-md-1 col-lg-3"></div>
-    </div>
+    </form>
     <div class="row pt-3">
-        <p class="text-center">Tengo una cuenta</p>
+      <p class="text-center">Tengo una cuenta</p>
     </div>
-</div>
+  </div>
