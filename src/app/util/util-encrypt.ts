@@ -5,5 +5,5 @@ export const encriptar = (data: string):string => {
 };
 
 export const desencriptar = (valorEncriptado: string) => {
-  return CryptoJs.AES.decrypt(valorEncriptado, 'HIPOTENUSA').toString();
+  return CryptoJs.AES.decrypt(valorEncriptado, 'HIPOTENUSA').toString(CryptoJs.enc.Utf8);
 };

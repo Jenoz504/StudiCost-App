@@ -41,10 +41,11 @@ export class LoginFormComponent {
     this.servicioEstudiante.getEstudiantePorUsuario(this.Estudiante.usuario).subscribe(data => {
       console.log(data);
       this.Estudiante.nombre = data.nombre;
-      this.contrasenaEncriptada =String(desencriptar(data.contrasena));
+      this.contrasenaEncriptada =String(desencriptar(data.contrasena.toString()));
       console.log("Päss desemprictado " + this.contrasenaEncriptada);
-      if (this.lasContrasenasCoinciden(data.contrasena)) {
-        this.toastr.success(`Es un placer tenerte por aqui .`,"Bienvenido!");
+      console.log("data desemprictado " + this.Estudiante.contrasena);
+      if (this.lasContrasenasCoinciden(this.contrasenaEncriptada)) {
+        this.toastr.success(`Es un placer tenerte por aqui, ${data.nombre} .`,"Bienvenido!");
         // this.router.navigate(['/home']);
       }else{
         this.toastr.error("El usuario o la contraseña no coinciden", "Error");
