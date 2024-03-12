@@ -12,7 +12,6 @@ import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { desencriptar, encriptar } from '../../util/util-encrypt';
-import *  as CryptoJs from 'crypto-js'
 
 
 @Component({
@@ -46,10 +45,10 @@ export class RegistroFormComponent {
     if (this.lasContrasenasCoinciden()) {
       // console.log(this.Estudiante.contrasena.toString());
       this.Estudiante.contrasena = encriptar(this.Estudiante.contrasena.toString());
-      console.log(this.Estudiante);
+      // console.log(this.Estudiante);
       // console.log(desencriptar(this.Estudiante.contrasena.toString()));
       this.servicioEstudiante.guardarEstudiante(this.Estudiante).subscribe(data=> {
-        console.log(data);
+        // console.log(data);
         this.router.navigate(['/login']);
         this.toastr.success("Ya puedes iniciar sesión.","¡Estudiante registrado con éxito!");
       }, error => {

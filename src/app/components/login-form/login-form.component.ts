@@ -39,11 +39,11 @@ export class LoginFormComponent {
 
   verificarUsuario(): void {
     this.servicioEstudiante.getEstudiantePorUsuario(this.Estudiante.usuario).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.Estudiante.nombre = data.nombre;
       this.contrasenaEncriptada =String(desencriptar(data.contrasena.toString()));
-      console.log("Päss desemprictado " + this.contrasenaEncriptada);
-      console.log("data desemprictado " + this.Estudiante.contrasena);
+      // console.log("Päss desemprictado " + this.contrasenaEncriptada);
+      // console.log("data desemprictado " + this.Estudiante.contrasena);
       if (this.lasContrasenasCoinciden(this.contrasenaEncriptada)) {
         this.toastr.success(`Es un placer tenerte por aqui, ${data.nombre} .`,"Bienvenido!");
         // this.router.navigate(['/home']);
@@ -56,7 +56,7 @@ export class LoginFormComponent {
     });
   }
   lasContrasenasCoinciden(contrasena: any) {
-    if (this.contrasenaEncriptada == contrasena) {
+    if (this.Estudiante.contrasena   == contrasena) {
       return true
     }
     return false;
