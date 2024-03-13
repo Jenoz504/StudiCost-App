@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { EstudianteService } from '../../../services/estudiante.service';
 import { CategoriasService } from '../../../services/categorias.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorias-form',
@@ -25,7 +26,8 @@ export class CategoriasFormComponent {
 
   constructor(private servicioEstudiante: EstudianteService,
               private servicioCategoria: CategoriasService,
-              private toastr: ToastrService){};
+              private toastr: ToastrService,
+              private router: Router){};
 
   enviarFormulario():void {
     console.log(this.categoria);
@@ -45,6 +47,7 @@ export class CategoriasFormComponent {
 
       this.servicioCategoria.guardarCategoria(this.categoria).subscribe(data => {
         this.toastr.success(`Se ha guardado con exito la categoria, ${data.nombre} .`,"Exito!");
+        this.router.navigate(['/categorias']);
       }, error => {
         this.toastr.error("Procura llenar todos los campos", "No se ha podido guardar la categoria");
         console.log("Error = " + error);
