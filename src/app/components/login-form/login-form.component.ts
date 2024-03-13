@@ -47,11 +47,12 @@ export class LoginFormComponent {
       if (this.lasContrasenasCoinciden(this.contrasenaEncriptada)) {
         this.toastr.success(`Es un placer tenerte por aqui, ${data.nombre} .`,"Bienvenido!");
         // this.router.navigate(['/home']);
+        this.servicioEstudiante.setIdEstudiante(String (this.Estudiante._id));
       }else{
         this.toastr.error("El usuario o la contraseña no coinciden", "Error");
       }
     }, error =>{
-      this.toastr.error("Procura llenar todos los campos", "No se ha guardado");
+      this.toastr.error("Procura llenar todos los campos", "No se ha podido iniciar sesión");
       console.log(error);
     });
   }

@@ -3,6 +3,8 @@ import { CategoriasModel } from '../../../models/CategoriasModel';
 import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { EstudianteService } from '../../../services/estudiante.service';
+import { CategoriasService } from '../../../services/categorias.service';
 
 @Component({
   selector: 'app-categorias-form',
@@ -19,6 +21,8 @@ export class CategoriasFormComponent {
   estudiante: ""};
   @Input() esActualizacion:boolean = false;
 
+  constructor(private servicioEstudiante: EstudianteService,
+              private servicioCategoria: CategoriasService){};
 
   enviarFormulario():void {
     console.log(this.categoria);

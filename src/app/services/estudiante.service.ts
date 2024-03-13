@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { EstudiantesModel } from '../models/EstudiantesModel';
 
 @Injectable({
@@ -12,9 +12,18 @@ export class EstudianteService {
   constructor(private http: HttpClient) {  }
   url = 'http://localhost:8000/api/estudiantes/';
 
+
+  private idEstudiante = new BehaviorSubject<string | null>(null);
   getEstudianteById(id:any):Observable<any>{
     return this.http.get(this.url, id);
   }
+  setIdEstudiante(id: string) {
+    this.idEstudiante.next(id);
+  }
+  getIdEstudiante() {
+    return this.idEstudiante.asObservable();
+  }
+
 
   getEstudiantePorUsuario(usuario:any):Observable<any>{
     return this.http.get(this.url+ 'byusuario/'+ usuario);
