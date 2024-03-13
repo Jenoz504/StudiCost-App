@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { EstudianteService } from '../../../services/estudiante.service';
 import { CategoriasService } from '../../../services/categorias.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categorias-form',
@@ -20,9 +21,11 @@ export class CategoriasFormComponent {
   descripcion: "",
   estudiante: ""};
   @Input() esActualizacion:boolean = false;
+  @Input() tituloFormulario:String = "Crear Categoria";
 
   constructor(private servicioEstudiante: EstudianteService,
-              private servicioCategoria: CategoriasService){};
+              private servicioCategoria: CategoriasService,
+              private toastr: ToastrService){};
 
   enviarFormulario():void {
     console.log(this.categoria);
@@ -34,11 +37,28 @@ export class CategoriasFormComponent {
   }
 
   guardarCategoria() {
+      this.servicioEstudiante.getIdEstudiante().subscribe(id => {
+        if (id) {
+          this.categoria.estudiante = id;
+        }
+      });
 
-  }
+      this.servicioCategoria.guardarCategoria(this.categoria).subscribe(data => {
+        this.toastr.success(`Se ha guardado con exito la categoria, ${data.nombre} .`,"Exito!");
+      }, error => {
+        this.toastr.error("Procura llenar todos los campos", "No se ha podido guardar la categoria");
+        console.log("Error = " + error);
+      });
+    }
 
-  actualizarCategoria() {
-
+    actualizarCategoria() {
+      this.categoria._id = this.servicioEstudiante.getIdEstudiante().toString();
+      this.servicioCategoria.acualizarCategoria(this.categoria._id,this.categoria).subscribe(data => {
+        this.toastr.success(`Se ha actualizado con exito la categoria, ${data.nombre} .`,"Exito!");
+      }, error => {
+        this.toastr.error("Procura llenar correctamente todos los campos", "No se ha podido actualizar la categoria");
+        console.log("Error = " + error);
+      });
   }
 
 }

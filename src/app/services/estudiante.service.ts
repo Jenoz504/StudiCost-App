@@ -13,17 +13,17 @@ export class EstudianteService {
   url = 'http://localhost:8000/api/estudiantes/';
 
 
-  private idEstudiante = new BehaviorSubject<string | null>(null);
-  getEstudianteById(id:any):Observable<any>{
-    return this.http.get(this.url, id);
-  }
-  setIdEstudiante(id: string) {
+  private idEstudiante = new BehaviorSubject<String | null>(null);
+  setIdEstudiante(id: String) {
     this.idEstudiante.next(id);
   }
   getIdEstudiante() {
     return this.idEstudiante.asObservable();
   }
 
+  getEstudianteById(id:any):Observable<any>{
+    return this.http.get(this.url, id);
+  }
 
   getEstudiantePorUsuario(usuario:any):Observable<any>{
     return this.http.get(this.url+ 'byusuario/'+ usuario);
