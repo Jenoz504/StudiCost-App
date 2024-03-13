@@ -49,7 +49,7 @@ export class LoginFormComponent {
         this.toastr.success(`Es un placer tenerte por aqui, ${data.nombre} .`,"Bienvenido!");
         // this.router.navigate(['/home']);
         this.servicioEstudiante.setIdEstudiante(String (this.Estudiante._id));
-        this.router.navigate(['/categorias']);
+        this.router.navigate(['/periodos']);
       }else{
         this.toastr.error("El usuario o la contraseña no coinciden", "Error");
       }
