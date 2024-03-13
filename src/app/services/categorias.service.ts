@@ -37,7 +37,8 @@ export class CategoriasService {
     return this.http.get(this.url + id);
   }
 
-  acualizarCategoria(id:any,Categoria: CategoriasModel): Observable<any> {
-    return this.http.put(this.url+ id, Categoria);
+  acualizarCategoria(id:String, categorias: any): Observable<any> {
+
+    return this.http.put(this.url + id, categorias);
   }
 }

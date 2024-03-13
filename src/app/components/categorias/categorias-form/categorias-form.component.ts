@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { EstudianteService } from '../../../services/estudiante.service';
 import { CategoriasService } from '../../../services/categorias.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorias-form',
@@ -18,16 +18,27 @@ import { Router } from '@angular/router';
 
 export class CategoriasFormComponent {
 
-  @Input() categoria:CategoriasModel = {nombre: "",
+  categoria:CategoriasModel = {nombre: "",
   descripcion: "",
   estudiante: ""};
-  @Input() esActualizacion:boolean = false;
-  @Input() tituloFormulario:String = "Crear Categoria";
+  idCategoria:String = "";
+  esActualizacion:boolean = false;
+  tituloFormulario:String = "Crear Categoria";
 
   constructor(private servicioEstudiante: EstudianteService,
               private servicioCategoria: CategoriasService,
               private toastr: ToastrService,
-              private router: Router){};
+              private router: Router,
+              private aRoute: ActivatedRoute){
+    if (this.aRoute.snapshot.paramMap.get('nombre')) {
+      this.esActualizacion = true;
+      this.categoria.descripcion = String (this.aRoute.snapshot.paramMap.get('descripcion'));
+      this.categoria.nombre = String (this.aRoute.snapshot.paramMap.get('nombre'));
+      this.idCategoria = String (this.aRoute.snapshot.paramMap.get('_id'));
+
+      this.tituloFormulario = "Actualizar Categoria";
+    }
+  };
 
   enviarFormulario():void {
     console.log(this.categoria);
@@ -55,9 +66,16 @@ export class CategoriasFormComponent {
     }
 
     actualizarCategoria() {
-      this.categoria._id = this.servicioEstudiante.getIdEstudiante().toString();
-      this.servicioCategoria.acualizarCategoria(this.categoria._id,this.categoria).subscribe(data => {
-        this.toastr.success(`Se ha actualizado con exito la categoria, ${data.nombre} .`,"Exito!");
+      this.categoria._id = this.idCategoria;
+      this.servicioEstudiante.getIdEstudiante().subscribe(id => {
+        if (id) {
+          this.categoria.estudiante = id;
+        }
+      });
+
+      this.servicioCategoria.acualizarCategoria(this.categoria._id, this.categoria).subscribe(data => {
+        this.toastr.success(`Se ha actualizado con exito la categoria, ${this.categoria.nombre} .`,"Exito!");
+        this.router.navigate(['/categorias']);
       }, error => {
         this.toastr.error("Procura llenar correctamente todos los campos", "No se ha podido actualizar la categoria");
         console.log("Error = " + error);
