@@ -6,7 +6,7 @@ import { NavbarComponent } from '../../../components/navbar/navbar.component';
 @Component({
   selector: 'app-categorias-control',
   standalone: true,
-  imports: [CategoriasViewComponent, CategoriasCreationComponent,NavbarComponent],
+  imports: [CategoriasViewComponent, CategoriasCreationComponent,NavbarComponent, CategoriasViewComponent],
   templateUrl: './categorias-control.component.html',
   styleUrl: './categorias-control.component.css'
 })
