@@ -1,19 +1,19 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { GastosModel } from '../models/GastosModel';
+import { ClasesModel } from '../models/ClasesModel';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GastosService {
+export class ClasesService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:8000/api/gastos/';
+  url = 'http://localhost:8000/api/clases/';
 
-  guardarGasto(Gasto: GastosModel): Observable<any> {
-    return this.http.post<any>(this.url, Gasto).pipe(catchError((error: HttpErrorResponse) =>{
+  guardarClase(Clase: ClasesModel): Observable<any> {
+    return this.http.post<any>(this.url, Clase).pipe(catchError((error: HttpErrorResponse) =>{
       let errorMessage = "";
 
       if(error.error instanceof ErrorEvent) {
@@ -25,20 +25,20 @@ export class GastosService {
     }));
   }
 
-  eliminarGasto(id: string): Observable<any>{
+  eliminarClase(id: string): Observable<any>{
     return this.http.delete(this.url + id);
   }
 
-  obtenerGastosDelEstudiante(nombreEstudiante:any):Observable<any>{
-    return this.http.get(this.url+ 'porEstudiante/'+ nombreEstudiante);
+  obtenerClasesDelEstudiante(nombreEstudiante:any):Observable<any>{
+    return this.http.get(this.url+ 'porestudiante/'+ nombreEstudiante);
   }
 
-  obtenerGastoPorId(id:any):Observable<any>{
+  obtenerClasePorId(id:any):Observable<any>{
     return this.http.get(this.url + id);
   }
 
-  acualizarGasto(id:String, Gastos: any): Observable<any> {
+  acualizarClase(id:String, Clase: any): Observable<any> {
 
-    return this.http.put(this.url + id, Gastos);
+    return this.http.put(this.url + id, Clase);
   }
 }

@@ -1,1 +1,51 @@
-<p>gastos-view works!</p>
+<div class="container-fluid">
+
+  <h1 class="text-center pt-3 pb-4">Gastos</h1>
+  <div class="col d-flex justify-content-end align-items-end mb-2">
+    <button mat-flat-button color="primary" routerLink="/formulariogasto" >Crear gasto</button>
+  </div>
+</div>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let gasto"> {{gasto.descripcion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef> Categoría </th>
+      <td mat-cell *matCellDef="let gasto">{{traerNombreCategoria(gasto.categoria)}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let gasto"> {{gasto.fecha}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clase">
+      <th mat-header-cell *matHeaderCellDef> Clase </th>
+      <td mat-cell *matCellDef="let gasto"> {{trareNombreClase(gasto.clase)}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="opciones">
+      <th mat-header-cell *matHeaderCellDef> Opciones </th>
+      <td mat-cell *matCellDef="let gasto">
+        <a [routerLink]="['/formulariogasto/', gasto]">
+          <mat-icon>edit</mat-icon>
+        </a>
+          <mat-icon>delete</mat-icon>
+      </td>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Cantidad">
+  </mat-paginator>
+</div>

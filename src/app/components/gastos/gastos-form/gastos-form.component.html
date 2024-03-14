@@ -1,1 +1,82 @@
-<p>gastos-form works!</p>
+<div class="container border  shadow pt-5 mt-4 mb-4">
+  <h1 class="text-center pt-2">{{tituloFormulario}}</h1>
+  <form (ngSubmit) = "enviarFormulario()">
+
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <mat-form-field class="col-12">
+          <mat-label>Descripcion</mat-label>
+          <input matInput name="descripcion" [(ngModel)] ='Gasto.descripcion'>
+        </mat-form-field>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <mat-form-field class="col-12">
+          <mat-label>Fecha</mat-label>
+          <input name="fecha" [(ngModel)] ='Gasto.fecha' type="date"  matInput >
+        </mat-form-field>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <mat-form-field class="col-12">
+          <mat-label>Cantidad</mat-label>
+          <input name="cantidad" [(ngModel)] ='Gasto.cantidad' type="number"  matInput >
+        </mat-form-field>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <mat-form-field class="col-12">
+          <mat-label>Categoria</mat-label>
+          <mat-select [(ngModel)]="categoriaSeleccionada" name="categoria">
+            @for (Categoria of selectCategorias; track Categoria) {
+              <mat-option [value]="Categoria.valorReal">{{Categoria.valorVisto}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <p class="text-center"> id: {{categoriaSeleccionada}} </p>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6">
+        <mat-form-field class="col-12">
+          <mat-label>Clase</mat-label>
+          <mat-select [(ngModel)]="claseSeleccionada" name="clase">
+            @for (clase of selectClases; track clase) {
+              <mat-option [value]="clase.valorReal">{{clase.valorVisto}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <p class="text-center"> id: {{claseSeleccionada}} </p>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <input class = "btn indigo col-12 mb-5" type="submit" value = {{tituloFormulario}} >
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+  </form>
+</div>

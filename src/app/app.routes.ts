@@ -8,7 +8,7 @@ import { PeriodosCreationComponent } from './views/periodos/periodos-creation/pe
 import { InstitucionesControlComponent } from './views/instituciones/instituciones-control/instituciones-control.component';
 import { InstitucionesCreationComponent } from './views/instituciones/instituciones-creation/instituciones-creation.component';
 import { GastosControlComponent } from './views/gastos/gastos-control/gastos-control.component';
-import { GastosFormComponent } from './components/gastos/gastos-form/gastos-form.component';
+import { GastosCreationComponent } from './views/gastos/gastos-creation/gastos-creation.component';
 
 export const routes: Routes = [
   {
@@ -33,11 +33,11 @@ export const routes: Routes = [
   },
   {
     path: 'formularioperiodo',
-    component: InstitucionesControlComponent,
+    component: PeriodosCreationComponent,
   },
   {
-    path: 'formulariogastos',
-    component: GastosFormComponent,
+    path: 'formulariogasto',
+    component: GastosCreationComponent,
   },
   {
     path: 'gastos',
