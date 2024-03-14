@@ -5,6 +5,10 @@ import { CategoriasControlComponent } from './views/categorias/categorias-contro
 import { CategoriasCreationComponent } from './views/categorias/categorias-creation/categorias-creation.component';
 import { PeriodosControlComponent } from './views/periodos/periodos-control/periodos-control.component';
 import { PeriodosCreationComponent } from './views/periodos/periodos-creation/periodos-creation.component';
+import { InstitucionesControlComponent } from './views/instituciones/instituciones-control/instituciones-control.component';
+import { InstitucionesCreationComponent } from './views/instituciones/instituciones-creation/instituciones-creation.component';
+import { GastosControlComponent } from './views/gastos/gastos-control/gastos-control.component';
+import { GastosFormComponent } from './components/gastos/gastos-form/gastos-form.component';
 
 export const routes: Routes = [
   {
@@ -29,7 +33,23 @@ export const routes: Routes = [
   },
   {
     path: 'formularioperiodo',
-    component: PeriodosCreationComponent,
+    component: InstitucionesControlComponent,
+  },
+  {
+    path: 'formulariogastos',
+    component: GastosFormComponent,
+  },
+  {
+    path: 'gastos',
+    component: GastosControlComponent,
+  },
+  {
+    path: 'instituciones',
+    component: InstitucionesControlComponent,
+  },
+  {
+    path: 'formularioinstituciones',
+    component: InstitucionesCreationComponent,
   },
   {
     path: 'registro',
