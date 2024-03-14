@@ -28,7 +28,7 @@ export const routes: Routes = [
     component: PeriodosControlComponent,
   },
   {
-    path: 'formularioPeriodo',
+    path: 'formularioperiodo',
     component: PeriodosCreationComponent,
   },
   {

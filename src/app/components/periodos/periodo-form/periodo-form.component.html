@@ -1,0 +1,31 @@
+<div class="container border  shadow pt-5 mt-4 mb-4">
+  <h1 class="text-center pt-2">{{tituloFormulario}}</h1>
+  <form (ngSubmit) = "enviarFormulario()">
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <mat-form-field class="col-12">
+          <mat-label>Fecha de inicio</mat-label>
+          <input name="nombre" required  type="date" [(ngModel)] ='periodo.fechainicio'  matInput >
+        </mat-form-field>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <mat-form-field class="col-12">
+          <mat-label>Fecha de cierre</mat-label>
+          <input matInput name="fechacierre"  required type="date" [(ngModel)] ='periodo.fechacierre'>
+        </mat-form-field>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
+    <div class="row"><div class="col-md-1 col-lg-3 "></div>
+    <div class="col-12 col-md-10 col-lg-6 ">
+      <input class = "btn indigo col-12 mb-5" type="submit" value = {{tituloFormulario}} >
+    </div>
+    <div class="col-md-1 col-lg-3"></div>
+  </div>
+  </form>
+</div>

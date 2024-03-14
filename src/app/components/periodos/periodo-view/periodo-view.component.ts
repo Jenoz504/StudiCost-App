@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { EstudianteService } from '../../../services/estudiante.service';
 import { PeriodoService } from '../../../services/periodo.service';
 import { ToastrService } from 'ngx-toastr';
@@ -36,8 +36,8 @@ export class PeriodoViewComponent {
     this.asignarIdEstudiante();
     this.servicioPeriodos.obtenerPeriodosDelEstudiante(this.idEstudiante).subscribe(data => {
       this.periodos = data;
-      console.log(data)
-      this.dataSource.data = this.periodos;
+      console.log(this.periodos);
+      this.dataSource.data = data;
       this.displayedColumns = ['fechainicio', 'fechacierre', 'opciones'];
       console.log(this.periodos);
     })
