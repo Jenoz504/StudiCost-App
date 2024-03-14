@@ -44,9 +44,8 @@ export class LoginFormComponent {
       this.contrasenaEncriptada =String(desencriptar(data.contrasena.toString()));
       if (this.lasContrasenasCoinciden(this.contrasenaEncriptada)) {
         this.toastr.success(`Es un placer tenerte por aqui, ${data.nombre} .`,"Bienvenido!");
-        // this.router.navigate(['/home']);
+        this.router.navigate(['/home']);
         this.servicioEstudiante.setIdEstudiante(String (this.Estudiante._id));
-        this.router.navigate(['/clases']);
       }else{
         this.toastr.error("El usuario o la contraseña no coinciden", "Error");
       }

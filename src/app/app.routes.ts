@@ -11,6 +11,7 @@ import { GastosControlComponent } from './views/gastos/gastos-control/gastos-con
 import { GastosCreationComponent } from './views/gastos/gastos-creation/gastos-creation.component';
 import { ClasesControlComponent } from './views/clases/clases-control/clases-control.component';
 import { ClasesCreationComponent } from './views/clases/clases-creation/clases-creation.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
   {
@@ -64,5 +65,9 @@ export const routes: Routes = [
   {
     path: 'registro',
     component: RegistroComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];

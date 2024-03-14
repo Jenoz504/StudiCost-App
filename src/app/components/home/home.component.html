@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+<div class="container pt-4 pb-4">
+  <div class="row">
+    <mat-form-field class="col-12">
+      <mat-label>Periodo</mat-label>
+      <mat-select [(ngModel)]="periodoSeleccionado" name="periodo">
+        @for (Periodo of selectPeriodos; track Periodo) {
+          <mat-option [value]="Periodo.valorReal">{{Periodo.valorVisto}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <p>Presupuesto utilizado en este periodo: {{2500}}/{{3500}}</p>
+    <mat-progress-bar mode="determinate" value="{{porcentajedePresupuesto}}"></mat-progress-bar>
+  </div>
+</div>
+<footer>
+  <app-footer></app-footer>
+</footer>
