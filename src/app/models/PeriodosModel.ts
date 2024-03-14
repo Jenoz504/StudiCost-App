@@ -1,7 +1,7 @@
 export class PeriodosModel {
   _id?: string;
+  nombre: String = "";
   fechainicio: String = "";
   fechacierre: String = "";
-  institucion: String = "";
   estudiante: String = "";
 }

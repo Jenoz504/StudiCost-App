@@ -9,6 +9,8 @@ import { InstitucionesControlComponent } from './views/instituciones/institucion
 import { InstitucionesCreationComponent } from './views/instituciones/instituciones-creation/instituciones-creation.component';
 import { GastosControlComponent } from './views/gastos/gastos-control/gastos-control.component';
 import { GastosCreationComponent } from './views/gastos/gastos-creation/gastos-creation.component';
+import { ClasesControlComponent } from './views/clases/clases-control/clases-control.component';
+import { ClasesCreationComponent } from './views/clases/clases-creation/clases-creation.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +44,14 @@ export const routes: Routes = [
   {
     path: 'gastos',
     component: GastosControlComponent,
+  },
+  {
+    path: 'clases',
+    component: ClasesControlComponent
+  },
+  {
+    path: 'formularioclases',
+    component: ClasesCreationComponent,
   },
   {
     path: 'instituciones',

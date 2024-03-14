@@ -18,9 +18,9 @@ import { PeriodosModel } from '../../../models/PeriodosModel';
 })
 export class PeriodoFormComponent {
   periodo:PeriodosModel = {
+    nombre: "",
     fechainicio: "",
     fechacierre: "",
-    institucion: "",
     estudiante: ""
   };
 

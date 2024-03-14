@@ -26,7 +26,7 @@ export class PeriodoViewComponent {
   periodos: PeriodosModel[] = [
   ];
 
-  displayedColumns: string[] = ['fechainicio', 'fechacierre', 'opciones'];
+  displayedColumns: string[] = ['nombre','fechainicio', 'fechacierre', 'opciones'];
   dataSource = new MatTableDataSource<PeriodosModel>(this.periodos);
 
   @ViewChild(MatPaginator) paginator?:MatPaginator;
@@ -38,7 +38,7 @@ export class PeriodoViewComponent {
       this.periodos = data;
       console.log(this.periodos);
       this.dataSource.data = data;
-      this.displayedColumns = ['fechainicio', 'fechacierre', 'opciones'];
+      this.displayedColumns = ['nombre','fechainicio', 'fechacierre', 'opciones'];
       console.log(this.periodos);
     })
   }
