@@ -17,6 +17,14 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './instituciones-view.component.css'
 })
 export class InstitucionesViewComponent {
+
+  eliminar(Instituciones:InstitucionesModel){
+    this.servicioInstituciones.eliminarInstituciones(String(Instituciones._id)).subscribe(data=>{
+
+      this.toastr.success("Instituciones eliminado!" , "Se ha eliminado la Instituciones");
+    });
+  }
+  
   constructor(private servicioEstudiante: EstudianteService,
     private servicioInstituciones: InstitucionesService,
     private toastr: ToastrService

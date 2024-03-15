@@ -56,10 +56,12 @@ export class GastosViewComponent {
     })
   }
   eliminar(gasto:GastosModel){
-    this.servicioGastos.eliminarGasto(String(gasto._id));
-    this.toastr.success("Gasto eliminado!");
+    this.servicioGastos.eliminarGasto(String(gasto._id)).subscribe(data=>{
+
+      this.toastr.success("Gasto eliminado!" , "Se ha eliminado el gasto");
+    });
   }
-  
+
   asignarIdEstudiante() {
     this.servicioEstudiante.getIdEstudiante().subscribe(id => {
       if (id) {

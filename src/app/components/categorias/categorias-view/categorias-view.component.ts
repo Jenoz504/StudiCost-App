@@ -27,6 +27,11 @@ export class CategoriasViewComponent {
   categorias: CategoriasModel[] = [
   ];
 
+  eliminar(Categoria: CategoriasModel) {
+    this.servicioCategorias.eliminarCategoria(String (Categoria._id)).subscribe(data=>{
+      this.toastr.success("Categoria eliminada!" , "Se ha eliminado la Categoria");
+    });
+  }
   displayedColumns: string[] = ['nombre', 'descripcion', 'opciones'];
   dataSource = new MatTableDataSource<CategoriasModel>(this.categorias);
 

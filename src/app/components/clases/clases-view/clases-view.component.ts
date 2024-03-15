@@ -19,6 +19,11 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './clases-view.component.css'
 })
 export class ClasesViewComponent {
+eliminar(Clase: ClasesModel) {
+  this.servicioClases.eliminarClase(String (Clase._id)).subscribe(data=>{
+    this.toastr.success("Clase eliminado!" , "Se ha eliminado la Clase");
+  });
+}
 
 
   constructor(private servicioEstudiante: EstudianteService,

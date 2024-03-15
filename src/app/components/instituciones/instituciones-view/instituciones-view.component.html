@@ -27,7 +27,10 @@
         <a [routerLink]="['/formularioinstituciones/', institucion]">
           <mat-icon>edit</mat-icon>
         </a>
+        <button class="btn btn-danger" (click)="eliminar(institucion)">
+
           <mat-icon>delete</mat-icon>
+        </button>
       </td>
 
     </ng-container>

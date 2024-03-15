@@ -35,7 +35,9 @@
         <a [routerLink]="['/formulariogasto/', gasto]">
           <mat-icon>edit</mat-icon>
         </a>
-          <mat-icon onclick = "eliminar(gasto)">delete</mat-icon>
+        <button class="btn btn-danger" (click)="eliminar(gasto)">
+          <mat-icon >delete</mat-icon>
+        </button>
       </td>
 
     </ng-container>

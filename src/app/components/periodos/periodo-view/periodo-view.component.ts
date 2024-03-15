@@ -25,7 +25,12 @@ export class PeriodoViewComponent {
   private idEstudiante:String = "";
   periodos: PeriodosModel[] = [
   ];
+  eliminar(Periodo:PeriodosModel){
+    this.servicioPeriodos.eliminarPeriodo(String(Periodo._id)).subscribe(data=>{
 
+      this.toastr.success("Periodo eliminado!" , "Se ha eliminado el Periodo");
+    });
+  }
   displayedColumns: string[] = ['nombre','fechainicio', 'fechacierre', 'opciones'];
   dataSource = new MatTableDataSource<PeriodosModel>(this.periodos);
 
