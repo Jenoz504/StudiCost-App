@@ -1,19 +1,36 @@
 <app-navbar></app-navbar>
 <div class="container pt-4 pb-4">
-  <div class="row">
+  <h1 class="text-center pb-4">Gastos realizados en este periodo</h1>
+  <div class="row pb-3">
     <mat-form-field class="col-12">
       <mat-label>Periodo</mat-label>
-      <mat-select [(ngModel)]="periodoSeleccionado" name="periodo">
+      <mat-select [(ngModel)]="periodoSeleccionado" name="periodo"   (ngModelChange)="onCategoriaChange()" >
         @for (Periodo of selectPeriodos; track Periodo) {
           <mat-option [value]="Periodo.valorReal">{{Periodo.valorVisto}}</mat-option>
         }
       </mat-select>
     </mat-form-field>
   </div>
-  <div class="row">
-    <p>Presupuesto utilizado en este periodo: {{2500}}/{{3500}}</p>
+  <div class="row pb-3">
+    <div class="col">
+
+      <p>Presupuesto utilizado en este periodo: {{sumatoriaGastos}}/{{presupuesto}}</p>
+    </div>
+    <div class="col">
+      <p>{{porcentajedePresupuesto}}%</p>
+    </div>
+  </div>
+  <div class="row pb-5">
     <mat-progress-bar mode="determinate" value="{{porcentajedePresupuesto}}"></mat-progress-bar>
   </div>
+  <h2>Categorias</h2>
+  <div class="d-flex row flex-wrap w-100">
+  <div *ngFor="let categoria of categorias">
+      <div>
+        <app-carta-categoria class="col-4 p-3"   [Categoria]="categoria"></app-carta-categoria>
+      </div>
+  </div>
+</div>
 </div>
 <footer>
   <app-footer></app-footer>

@@ -52,10 +52,14 @@ export class GastosViewComponent {
       this.Gastos = data;
       this.dataSource.data = this.Gastos;
       this.displayedColumns =  ['descripcion', 'categoria','fecha','clase','opciones'];
-      console.log(this.Gastos);
+      // console.log(this.Gastos);
     })
   }
-
+  eliminar(gasto:GastosModel){
+    this.servicioGastos.eliminarGasto(String(gasto._id));
+    this.toastr.success("Gasto eliminado!");
+  }
+  
   asignarIdEstudiante() {
     this.servicioEstudiante.getIdEstudiante().subscribe(id => {
       if (id) {

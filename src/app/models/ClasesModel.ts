@@ -1,5 +1,5 @@
 export class ClasesModel {
-  id?: String;
+  _id?: String = "";
   nombre: String = "";
   periodo: String = "";
   costoclase: Number = 0;

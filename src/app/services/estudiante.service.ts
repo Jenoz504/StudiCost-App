@@ -22,7 +22,7 @@ export class EstudianteService {
   }
 
   getEstudianteById(id:any):Observable<any>{
-    return this.http.get(this.url, id);
+    return this.http.get(this.url +'byid/' + id);
   }
 
   getEstudiantePorUsuario(usuario:any):Observable<any>{

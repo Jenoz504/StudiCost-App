@@ -3,7 +3,7 @@ export class GastosModel {
   descripcion: String = "";
   cantidad: Number = 0;
   categoria?: String = "";
-  fecha?: String = "";
+  fecha: String = "";
   clase?: String = "";
   estudiante: String = "";
 }

@@ -52,7 +52,8 @@ export class GastosFormComponent {
   Gasto:GastosModel = {
     descripcion: "",
     estudiante: "",
-    cantidad: 0
+    cantidad: 0,
+    fecha: ""
   };
 
   ngOnInit() {
@@ -86,8 +87,9 @@ export class GastosFormComponent {
   }
   llenarSelectClases() {
     this.arregloClases.forEach(clase => {
-      this.selectClases.push({valorReal: clase.id, valorVisto: clase.nombre})
+      this.selectClases.push({valorReal: clase._id, valorVisto: clase.nombre})
     });
+    console.log(this.selectClases);
   }
 ;
 
@@ -109,7 +111,8 @@ export class GastosFormComponent {
       this.Gasto.fecha = String (this.aRoute.snapshot.paramMap.get('fecha'));
       this.Gasto.cantidad = Number (this.aRoute.snapshot.paramMap.get('cantidad'));
       this.idGasto = String (this.aRoute.snapshot.paramMap.get('_id'));
-
+      this.categoriaSeleccionada = String (this.aRoute.snapshot.paramMap.get('categoria'));
+      this.claseSeleccionada = String (this.aRoute.snapshot.paramMap.get('clase'));
       this.tituloFormulario = "Actualizar Gasto";
     }
   };

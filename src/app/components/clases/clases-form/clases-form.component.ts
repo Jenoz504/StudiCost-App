@@ -117,14 +117,14 @@ export class ClasesFormComponent {
     }
 
     actualizarClase() {
-      this.Clase.id = this.idClase;
+      this.Clase._id = this.idClase;
       this.servicioEstudiante.getIdEstudiante().subscribe(id => {
         if (id) {
           this.Clase.estudiante = id;
         }
       });
       this.Clase.periodo = this.periodoSeleccionado;
-      this.servicioClase.acualizarClase(this.Clase.id, this.Clase).subscribe(data => {
+      this.servicioClase.acualizarClase(this.Clase._id, this.Clase).subscribe(data => {
         this.toastr.success(`Se ha actualizado con exito la Clase, ${this.Clase.nombre} .`,"Exito!");
         this.router.navigate(['/clases']);
         console.log(data);
