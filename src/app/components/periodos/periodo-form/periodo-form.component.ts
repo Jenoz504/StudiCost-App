@@ -21,7 +21,8 @@ export class PeriodoFormComponent {
     nombre: "",
     fechainicio: "",
     fechacierre: "",
-    estudiante: ""
+    estudiante: "",
+    presupuesto: 0
   };
 
   idPeriodo:String = "";
@@ -39,7 +40,7 @@ export class PeriodoFormComponent {
         this.periodo.fechainicio = String (this.aRoute.snapshot.paramMap.get('fechainicio'));
         this.periodo.fechacierre = String (this.aRoute.snapshot.paramMap.get('fechacierre'));
         this.idPeriodo = String (this.aRoute.snapshot.paramMap.get('_id'));
-
+        this.periodo.presupuesto = Number (this.aRoute.snapshot.paramMap.get('presupuesto'));
         this.tituloFormulario = "Actualizar Periodo";
     }
   }

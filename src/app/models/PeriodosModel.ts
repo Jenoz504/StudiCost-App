@@ -4,4 +4,5 @@ export class PeriodosModel {
   fechainicio: String = "";
   fechacierre: String = "";
   estudiante: String = "";
+  presupuesto: Number = 0;
 }

@@ -31,6 +31,16 @@
       </div>
       <div class="col-md-1 col-lg-3"></div>
     </div>
+    <div class="row">
+      <div class="col-md-1 col-lg-3 "></div>
+      <div class="col-12 col-md-10 col-lg-6 ">
+        <mat-form-field class="col-12">
+          <mat-label>Presupuesto para el periodo</mat-label>
+          <input matInput name="presupuesto"  required type="date" [(ngModel)] ='periodo.presupuesto'>
+        </mat-form-field>
+      </div>
+      <div class="col-md-1 col-lg-3"></div>
+    </div>
     <div class="row"><div class="col-md-1 col-lg-3 "></div>
     <div class="col-12 col-md-10 col-lg-6 ">
       <input class = "btn indigo col-12 mb-5" type="submit" value = {{tituloFormulario}} >

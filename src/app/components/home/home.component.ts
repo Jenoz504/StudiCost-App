@@ -52,7 +52,8 @@ export class HomeComponent {
     nombre: '',
     fechainicio: "",
     fechacierre: "",
-    estudiante: ""
+    estudiante: "",
+    presupuesto: 0 
   };
 
   Estudiante: EstudiantesModel = {
@@ -91,7 +92,7 @@ export class HomeComponent {
   
   }
   traerPersupuesto() {
-    this.servicioEstudiante.getEstudianteById(this.idEstudiante).subscribe(data=> {
+    this.servicioPeriodos.obtenerPeriodoPorId(this.periodoSeleccionado).subscribe(data=> {
       this.Estudiante = data;
       this.presupuesto = this.Estudiante.presupuesto;
       console.log(this.Estudiante);
@@ -137,7 +138,7 @@ export class HomeComponent {
       this.filtrarObjetos();
       this.sumatoriaGastos = this.gastosFiltrados.reduce((total, objeto) => total + objeto.cantidad.valueOf(), 0);
       this.traerPersupuesto()
-      this.porcentajedePresupuesto =Number(this.sumatoriaGastos)/ (Number(this.Estudiante.presupuesto))*100;
+      this.porcentajedePresupuesto = Number(this.sumatoriaGastos)/ (Number(this.Estudiante.presupuesto))*100;
       this.traerCategorias();
     }else {
 
