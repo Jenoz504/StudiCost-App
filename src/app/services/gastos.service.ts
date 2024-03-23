@@ -37,6 +37,10 @@ export class GastosService {
     return this.http.get(this.url + id);
   }
 
+  obtenerGastoPorCategoria(idCategoria:any):Observable<any>{
+    return this.http.get(this.url + 'porcategoria/' + idCategoria);
+  }
+
   acualizarGasto(id:String, Gastos: any): Observable<any> {
 
     return this.http.put(this.url + id, Gastos);
